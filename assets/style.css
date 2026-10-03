@@ -6,9 +6,21 @@
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 .search-card{position:sticky;top:12px;z-index:15;max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);overflow-y:auto;box-shadow:0 5px 18px #18284308}
 .search-row{position:sticky;top:0;z-index:1;background:white}
-.normalization-option{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;margin-top:12px}
-.normalization-option .check-label{cursor:pointer}.normalization-option input{flex-shrink:0}
-#normalization-help{font-size:.75rem;color:var(--muted);line-height:1.5}
+.search-box{border:1px solid var(--line);background:#f9fafd;border-radius:8px}
+.search-box:focus-within{border-color:#6d9cf5}
+.search-box input{flex:1;min-width:0;border:0;background:transparent;padding-right:10px}
+.search-box kbd{position:static;margin-right:8px;flex-shrink:0}
+.search-matches{display:flex;align-items:center;gap:2px;flex-shrink:0;border-left:1px solid var(--line);padding:0 5px;height:32px}
+#match-count{min-width:46px;text-align:center;font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.search-matches button{display:grid;place-items:center;width:28px;height:30px;border:0;border-radius:5px;background:transparent;color:var(--blue)}
+.search-matches button:hover{background:#e6edfd}.search-matches button:disabled{opacity:.35;cursor:default}.search-matches button svg{width:17px;height:17px}#match-next svg{transform:rotate(180deg)}
+.search-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-bottom:20px}
+.search-option .check-label{cursor:pointer}.search-option input{flex-shrink:0}
+.search-option p{font-size:.75rem;color:var(--muted);line-height:1.5;margin:5px 0 0 25px}
+.search-match{background:#fff0a8;color:inherit;border-radius:2px;padding:0;font:inherit}
+.search-match-active{background:#ffd56b;outline:2px solid #bc7b09;outline-offset:1px}
+.active-search-row{outline:2px solid #97b6ef;outline-offset:-2px}
+@media(max-width:620px){.search-options{grid-template-columns:1fr}.search-matches{padding:0 3px}.search-matches button{width:26px}#match-count{min-width:42px;font-size:.6875rem}}
 .go-top{position:fixed;right:24px;bottom:max(24px,env(safe-area-inset-bottom));z-index:18;width:46px;height:46px;display:grid;place-items:center;background:var(--blue);color:white;border:1px solid #ffffff80;border-radius:50%;box-shadow:0 5px 18px #18284333;cursor:pointer}
 .go-top:hover{background:#194ab8}.go-top svg{width:22px;height:22px}
 #preview-shell{height:100%;display:flex;flex-direction:column;background:white}
