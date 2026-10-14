@@ -40,13 +40,15 @@ Choose a folder, search names and remarks, or use **Advanced search** for all wo
 
 PDFs and supported images open in a preview dialog with a full-screen toggle. DOC/DOCX, XLS/XLSX and PPT/PPTX open in the Microsoft Office web viewer when the site is online; those previews require a publicly reachable file and may depend on the viewer's format/size limits. Other formats open the original file and may download according to browser support. Every file has a direct download link.
 
-## Open PDFs as text
+## Connect uploaded TXT to original files
 
-Every PDF row also includes **Open TXT**. The existing preview window displays selectable plain text, with **Copy text**, **Download TXT**, a full-screen toggle, and buttons to switch between the text and its original PDF. Opening the TXT link in a new tab opens the actual UTF-8 `.txt` file.
+Every original file row includes **Open TXT**. It becomes available when a matching UTF-8 `.txt` has been uploaded. The existing preview displays the uploaded text with **Copy text**, **Download TXT**, full screen, and a button to return to the original format. Opening the TXT link in a new tab opens the actual uploaded text file. Text is never generated automatically.
 
-GitHub Actions automatically creates text companions when files are added or updated. PDFs with a text layer are extracted directly; scanned pages use Nepali and English OCR. OCR text can contain recognition errors, particularly in names, dates, amounts and handwriting; compare these against **Open PDF**. Page boundaries are retained in multi-page text files. Original PDFs are preserved.
+Match the filename before its extension: `My order.pdf`, `My order.docx`, `My order.jpg`, `My order.xlsx` or `My order.pptx` connect to `My order.txt`. TXT may be uploaded into any of the five existing folders, including beside its original. Matching ignores Latin letter case and handles equivalent Unicode spelling; it does not alter names or guess from similar words.
 
-To replace automatic text with a corrected version, upload a UTF-8 `.txt` beside the PDF with exactly the same filename stem, for example `Files/pdf/My order.pdf` and `Files/pdf/My order.txt`. It becomes the PDF's text companion without adding a duplicate catalogue row. Generated files are packaged under `_text/Files/pdf/` and do not require manual uploads or a second file list.
+A matching TXT in the same directory takes priority. Otherwise, one uniquely matching TXT elsewhere in the collection is linked automatically. One TXT can serve several original formats sharing the same name. If several matching TXT files exist and none can be chosen uniquely, **Open TXT** stays disabled: put the correct TXT beside the original. If no TXT exists, the disabled link explains what to upload. Paired TXT is accessed from the original's row without creating a duplicate row; an unpaired TXT remains a standalone catalogue entry.
+
+Every upload to `main` rebuilds these connections and republishes the site automatically. Original files and the uploaded TXT contents are preserved. The build uses only Python's standard library; OCR tools and automatic extraction have been removed.
 
 ## Browser access screen
 
@@ -56,9 +58,10 @@ This screen is not server authentication. The repository, source credentials and
 
 ## Local use
 
-Install PyMuPDF (`python -m pip install 'PyMuPDF>=1.26,<2'`) and Tesseract with Nepali and English language data (`sudo apt-get install tesseract-ocr tesseract-ocr-nep tesseract-ocr-eng` on Ubuntu). Then run `python scripts/build-index.py --site` and serve `_site` using `python -m http.server --directory _site 8000`. The TXT preview uses HTTP; direct TXT links also work when files are opened locally. Static browsers cannot enumerate a folder themselves; the generator builds the catalogue from the actual files. GitHub Pages installs the dependencies and runs it automatically for online use.
+Run `python scripts/build-index.py --site` and serve `_site` using `python -m http.server --directory _site 8000`. The TXT preview uses HTTP; direct TXT links also work when files are opened locally. Static browsers cannot enumerate a folder themselves; the generator builds the catalogue and TXT connections from the actual files. GitHub Pages runs it automatically for online use.
 
 ## Hosting
 
 GitHub Pages uses **GitHub Actions** as its source. The included workflow generates the index, packages only the site and collected files, and publishes them. All uploaded files in this repository and its site are public.
+
 
