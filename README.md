@@ -40,6 +40,14 @@ Choose a folder, search names and remarks, or use **Advanced search** for all wo
 
 PDFs and supported images open in a preview dialog with a full-screen toggle. DOC/DOCX, XLS/XLSX and PPT/PPTX open in the Microsoft Office web viewer when the site is online; those previews require a publicly reachable file and may depend on the viewer's format/size limits. Other formats open the original file and may download according to browser support. Every file has a direct download link.
 
+## Open PDFs as text
+
+Every PDF row also includes **Open TXT**. The existing preview window displays selectable plain text, with **Copy text**, **Download TXT**, a full-screen toggle, and buttons to switch between the text and its original PDF. Opening the TXT link in a new tab opens the actual UTF-8 `.txt` file.
+
+GitHub Actions automatically creates text companions when files are added or updated. PDFs with a text layer are extracted directly; scanned pages use Nepali and English OCR. OCR text can contain recognition errors, particularly in names, dates, amounts and handwriting; compare these against **Open PDF**. Page boundaries are retained in multi-page text files. Original PDFs are preserved.
+
+To replace automatic text with a corrected version, upload a UTF-8 `.txt` beside the PDF with exactly the same filename stem, for example `Files/pdf/My order.pdf` and `Files/pdf/My order.txt`. It becomes the PDF's text companion without adding a duplicate catalogue row. Generated files are packaged under `_text/Files/pdf/` and do not require manual uploads or a second file list.
+
 ## Browser access screen
 
 The catalogue opens after entering mobile number `9849667879`, followed by the four-digit code `1234`. This is a local two-step access screen; it does not send SMS. Access is remembered in the same browser for a fixed six hours from verification. Reopening within one hour reuses that session; closing the page for an hour or longer requires both steps again. Backgrounding an open tab does not count as closing it. Clearing browser storage or using another browser requires verification again.
@@ -48,8 +56,9 @@ This screen is not server authentication. The repository, source credentials and
 
 ## Local use
 
-Run `python scripts/build-index.py` after changing files, then open `index.html`, or run `python -m http.server 8000`. Static browsers cannot enumerate a folder themselves; the generator builds the catalogue from the actual files. GitHub Pages runs it automatically for online use.
+Install PyMuPDF (`python -m pip install 'PyMuPDF>=1.26,<2'`) and Tesseract with Nepali and English language data (`sudo apt-get install tesseract-ocr tesseract-ocr-nep tesseract-ocr-eng` on Ubuntu). Then run `python scripts/build-index.py --site` and serve `_site` using `python -m http.server --directory _site 8000`. The TXT preview uses HTTP; direct TXT links also work when files are opened locally. Static browsers cannot enumerate a folder themselves; the generator builds the catalogue from the actual files. GitHub Pages installs the dependencies and runs it automatically for online use.
 
 ## Hosting
 
 GitHub Pages uses **GitHub Actions** as its source. The included workflow generates the index, packages only the site and collected files, and publishes them. All uploaded files in this repository and its site are public.
+
