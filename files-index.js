@@ -1,5 +1,5 @@
 window.RAYA_INDEX = {
-  "generatedAt": "2026-10-14T03:12:59.552635+00:00",
+  "generatedAt": "2026-10-14T04:13:41.342552+00:00",
   "files": [
     {
       "path": "Files/pdf/20830602_एकपक्षले_सहि_नगर्दैमा_डोर_मुचुल्का_वदर_नहुने.pdf",
@@ -8,9 +8,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 237709,
       "updatedAt": "2026-10-14T03:07:18.719694+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_एकपक्षले_सहि_नगर्दैमा_डोर_मुचुल्का_वदर_नहुने.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_किस्तामा_रकम_बुझाउने_समय_प्रदान.pdf",
@@ -19,9 +17,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 259171,
       "updatedAt": "2026-10-14T03:07:18.720921+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_किस्तामा_रकम_बुझाउने_समय_प्रदान.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_कैद_वापत_थुनामा_जगतश्रीमान.pdf",
@@ -30,9 +26,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 1186091,
       "updatedAt": "2026-10-14T03:08:25.204898+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_कैद_वापत_थुनामा_जगतश्रीमान.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_कैदहद_गर्न_नमिल्ने.pdf",
@@ -41,9 +35,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 632287,
       "updatedAt": "2026-10-14T03:07:18.722429+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_कैदहद_गर्न_नमिल्ने.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_गोलमोटल_निवेदन_उपर_न्यायिकटिप्पणी_ईश्वरपराजुली.pdf",
@@ -52,9 +44,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 367658,
       "updatedAt": "2026-10-14T03:07:19.673011+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_गोलमोटल_निवेदन_उपर_न्यायिकटिप्पणी_ईश्वरपराजुली.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_चेक_प्रतिवादीको_खाताबाट_जारीनभएको_उपर_बैंकसँग_एकीनजवाफमाग.pdf",
@@ -63,9 +53,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 227100,
       "updatedAt": "2026-10-14T03:07:19.673526+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_चेक_प्रतिवादीको_खाताबाट_जारीनभएको_उपर_बैंकसँग_एकीनजवाफमाग.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_चेकअनादररोक्का.pdf",
@@ -74,9 +62,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 261284,
       "updatedAt": "2026-10-14T03:07:19.674089+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_चेकअनादररोक्का.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_ज्येष्ठ_नागरिक_कैदछुट_शिवप्रसाआचार्य.pdf",
@@ -85,9 +71,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 900254,
       "updatedAt": "2026-10-14T03:07:20.663840+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_ज्येष्ठ_नागरिक_कैदछुट_शिवप्रसाआचार्य.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_डोर_मुचुल्का_बदर_नहुने.pdf",
@@ -96,9 +80,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 232157,
       "updatedAt": "2026-10-14T03:07:20.664471+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_डोर_मुचुल्का_बदर_नहुने.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_तहसिलदारको_पुनरोक्का_आदेश_बदरनहुने.pdf",
@@ -107,9 +89,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 220655,
       "updatedAt": "2026-10-14T03:07:20.664910+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_तहसिलदारको_पुनरोक्का_आदेश_बदरनहुने.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_तहसिलदारकोदरपीठआदेशबदर.pdf",
@@ -118,9 +98,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 279031,
       "updatedAt": "2026-10-14T03:07:21.345286+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_तहसिलदारकोदरपीठआदेशबदर.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_पेन्सन_बाहेकका_अन्य_आयस्रोत_खुलाउनु_मानाचामल.pdf",
@@ -129,9 +107,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 199963,
       "updatedAt": "2026-10-14T03:07:21.346161+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_पेन्सन_बाहेकका_अन्य_आयस्रोत_खुलाउनु_मानाचामल.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_बिगो_वापत_थुनामाराख्न_पक्राउपूर्जी_जारीगर्नू.pdf",
@@ -140,9 +116,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 45377,
       "updatedAt": "2026-10-14T03:06:05.737022+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_बिगो_वापत_थुनामाराख्न_पक्राउपूर्जी_जारीगर्नू.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_विगो_बुझाए_पक्राउपूर्जी_रद्द_गरिदिनु.pdf",
@@ -151,9 +125,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 231008,
       "updatedAt": "2026-10-14T03:07:21.346671+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_विगो_बुझाए_पक्राउपूर्जी_रद्द_गरिदिनु.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_विवाहप्रमाणपत्र_संशोधन.pdf",
@@ -162,9 +134,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 288437,
       "updatedAt": "2026-10-14T03:07:22.264377+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_विवाहप्रमाणपत्र_संशोधन.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_शर्तसहितअदालतीशुल्ककोसुविधा_अञ्जनसापकोटा.pdf",
@@ -173,9 +143,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 311338,
       "updatedAt": "2026-10-14T03:07:22.264957+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_शर्तसहितअदालतीशुल्ककोसुविधा_अञ्जनसापकोटा.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830602_१५५नम्बरकोसुविधा.pdf",
@@ -184,9 +152,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 590022,
       "updatedAt": "2026-10-14T03:07:22.266407+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830602_१५५नम्बरकोसुविधा.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830613_अआछलफल_विपक्षीलेजानकारीनपाएको_सुनुवाईगर्नमिलेन_अन्जनराजसापकोटाश्रीमान.pdf",
@@ -195,9 +161,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 274837,
       "updatedAt": "2026-10-14T03:07:23.203703+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830613_अआछलफल_विपक्षीलेजानकारीनपाएको_सुनुवाईगर्नमिलेन_अन्जनराजसापकोटाश्रीमान.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830613_कैद_हद_गर्न_कैद_नै_वाँकी_नरहेको_शिवप्रसादआचार्य.pdf",
@@ -206,9 +170,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 915550,
       "updatedAt": "2026-10-14T03:07:23.205582+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830613_कैद_हद_गर्न_कैद_नै_वाँकी_नरहेको_शिवप्रसादआचार्य.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     },
     {
       "path": "Files/pdf/20830613_प्रारम्भिक सुनुवाइ_खारेज नहुने_लगाउका केहीमा मात्र_कमलकान्तश्रीमान.pdf",
@@ -217,9 +179,7 @@ window.RAYA_INDEX = {
       "extension": "pdf",
       "size": 268403,
       "updatedAt": "2026-10-14T03:07:23.206213+00:00",
-      "remarks": "",
-      "textPath": "_text/Files/pdf/20830613_प्रारम्भिक सुनुवाइ_खारेज नहुने_लगाउका केहीमा मात्र_कमलकान्तश्रीमान.txt",
-      "textMethod": "ocr"
+      "remarks": ""
     }
   ]
 };
