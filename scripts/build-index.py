@@ -5,6 +5,7 @@ import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from pdf_text import add_text_companion
 
 ROOT = Path(__file__).resolve().parents[1]
 FOLDERS = ('pdf', 'images', 'docs', 'spreadsheet', 'powerpoints')
@@ -17,6 +18,9 @@ SUPPORTED = {
 }
 
 def build():
+    generated_text = ROOT / '_text'
+    if generated_text.exists():
+        shutil.rmtree(generated_text)
     metadata_path = ROOT / 'catalogue-metadata.json'
     metadata = json.loads(metadata_path.read_text(encoding='utf-8')) if metadata_path.exists() else {}
     if not isinstance(metadata, dict):
@@ -29,6 +33,9 @@ def build():
             if not path.is_file() or path.is_symlink() or any(p.startswith('.') for p in path.relative_to(directory).parts):
                 continue
             ext = path.suffix.lstrip('.').lower()
+            # PDF text companions are linked from the PDF's row, never duplicated.
+            if folder == 'pdf' and ext == 'txt' and path.with_suffix('.pdf').is_file():
+                continue
             # README/placeholder/system files never appear as collected documents.
             if ext not in SUPPORTED[folder]:
                 print(f'Skipping unsupported file: {path.relative_to(ROOT)}', file=sys.stderr)
@@ -44,6 +51,9 @@ def build():
             for key in ('openText', 'downloadText'):
                 if extra.get(key):
                     entry[key] = str(extra[key])
+            if ext == 'pdf':
+                add_text_companion(ROOT, path, entry)
+                print(f'Text ready ({entry["textMethod"]}): {relative}', flush=True)
             files.append(entry)
     index = {'generatedAt': datetime.now(timezone.utc).isoformat(), 'files': files}
     # External JavaScript works when index.html is opened locally, as well as on Pages.
@@ -66,9 +76,14 @@ def package_site(index):
         target = destination / entry['path']
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / entry['path'], target)
+        if entry.get('textPath'):
+            text_target = destination / entry['textPath']
+            text_target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT / entry['textPath'], text_target)
     (destination / '.nojekyll').touch()
 
 if __name__ == '__main__':
     index = build()
     if '--site' in sys.argv:
         package_site(index)
+
