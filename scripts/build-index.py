@@ -3,9 +3,9 @@
 import json
 import shutil
 import sys
+import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
-from pdf_text import add_text_companion
 
 ROOT = Path(__file__).resolve().parents[1]
 FOLDERS = ('pdf', 'images', 'docs', 'spreadsheet', 'powerpoints')
@@ -17,10 +17,33 @@ SUPPORTED = {
     'powerpoints': {'ppt', 'pptx', 'pptm', 'odp', 'pps', 'ppsx'},
 }
 
+def connect_text_files(files):
+    """Pair uploaded TXT by filename stem, preferring the original's directory."""
+    text_by_name = {}
+    name_key = lambda name: unicodedata.normalize('NFC', Path(name).stem).casefold()
+    for entry in files:
+        if entry['extension'] == 'txt':
+            text_by_name.setdefault(name_key(entry['name']), []).append(entry)
+    paired_text = set()
+    for entry in files:
+        if entry['extension'] == 'txt':
+            continue
+        candidates = text_by_name.get(name_key(entry['name']), [])
+        local = [text for text in candidates
+                 if Path(text['path']).parent == Path(entry['path']).parent]
+        candidates = local or candidates
+        if len(candidates) == 1:
+            text = candidates[0]
+            (ROOT / text['path']).read_text(encoding='utf-8-sig')
+            entry['textPath'] = text['path']
+            paired_text.add(text['path'])
+        elif len(candidates) > 1:
+            entry['textMatch'] = 'ambiguous'
+    # Companion TXT is accessed from its original row; standalone TXT stays visible.
+    return [entry for entry in files if entry['path'] not in paired_text]
+
+
 def build():
-    generated_text = ROOT / '_text'
-    if generated_text.exists():
-        shutil.rmtree(generated_text)
     metadata_path = ROOT / 'catalogue-metadata.json'
     metadata = json.loads(metadata_path.read_text(encoding='utf-8')) if metadata_path.exists() else {}
     if not isinstance(metadata, dict):
@@ -33,11 +56,8 @@ def build():
             if not path.is_file() or path.is_symlink() or any(p.startswith('.') for p in path.relative_to(directory).parts):
                 continue
             ext = path.suffix.lstrip('.').lower()
-            # PDF text companions are linked from the PDF's row, never duplicated.
-            if folder == 'pdf' and ext == 'txt' and path.with_suffix('.pdf').is_file():
-                continue
             # README/placeholder/system files never appear as collected documents.
-            if ext not in SUPPORTED[folder]:
+            if ext not in SUPPORTED[folder] and ext != 'txt':
                 print(f'Skipping unsupported file: {path.relative_to(ROOT)}', file=sys.stderr)
                 continue
             relative = path.relative_to(ROOT).as_posix()
@@ -51,10 +71,8 @@ def build():
             for key in ('openText', 'downloadText'):
                 if extra.get(key):
                     entry[key] = str(extra[key])
-            if ext == 'pdf':
-                add_text_companion(ROOT, path, entry)
-                print(f'Text ready ({entry["textMethod"]}): {relative}', flush=True)
             files.append(entry)
+    files = connect_text_files(files)
     index = {'generatedAt': datetime.now(timezone.utc).isoformat(), 'files': files}
     # External JavaScript works when index.html is opened locally, as well as on Pages.
     serialized = json.dumps(index, ensure_ascii=False, indent=2).replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
@@ -86,4 +104,5 @@ if __name__ == '__main__':
     index = build()
     if '--site' in sys.argv:
         package_site(index)
+
 
